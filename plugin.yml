@@ -1,4 +1,4 @@
-name: BasicPlugin
-main: YourUsername\YourPluginName\Main
-version: 1.0.0
-api: [3.0.0-ALPHA8]
+name: TestingPlugin
+main: OpGamer\TestingPlugin\Main
+version: 1.0.2
+api: [3.0.0-ALPHA10]
