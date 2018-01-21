@@ -1,37 +1,66 @@
-<?php // NEVER FORGET THIS, this means youre telling the server this is a PHP file!
-
-namespace YourUsername\YourPluginName; // Only your directory name! Never forget this!
-
-use pocketmine\Server; // acts as youre calling the server
-use pocketmine\Player; // acts as youre calling the player
-use pocketmine\command\Command; // acts as a command base
-use pocketmine\command\CommandSender; // acts as you when executing a command!
-use pocketmine\plugin\PluginBase; // a base for your plugin. BRAIN for it!
-use pocketmine\event\Listener; // acts as a ear to listen your command!
-
-class Main extends PluginBase implements Listener {
-// Main means your file name, may be vary!
-	
-	public function onEnable()
-    { // means what to do on start!
-        $this->getServer()->getPluginManager()->registerEvents($this, $this); // acts as a event register stuff
+<?php
+//Property of DevrlyCode & YungFlowz, you do not have permission to copy this plugin.
+//Property of DevrlyCode & YungFlowz
+//Any And All Usages Involving Non-Authorized Users Will Be Refered To As Meanie Heads
+//Copyright © @JazzyDevZ LLC
+namespace FlyUI;
+use pocketmine\Server;
+use pocketmine\Player;
+use pocketmine\plugin\PluginBase as Base;
+use pocketmine\utils\TextFormat as TF;
+use pocketmine\event\Listener;
+use pocketmine\command\Command;
+use pocketmine\command\CommandSender;
+use jojoe77777\FormAPI;
+class Main extends Base implements Listener{
+  
+    public function onEnable(){
+        $this->getLogger()->info("SkyCore Aactivated");
+        $this->getServer()->getPluginManager()->registerEvents($this, $this);
     }
-	
-	public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args): bool { // this line will never change unless you are a pro!
-		switch(strtolower($cmd->getName())) { // means you are starting to let the server know this is a command..
-			
-			case "hi": // command /hi
-				
-				$sender->sendMessage("Hi!"); // this means you will get a returning message saying "hi"!
-				return true; // must have!
-			break; //MUST have!
-			
-			// case "": you can keep on adding more!
-			
-		} // closes the command!
-	}
-	
-	public function onDisable() { //what to do on disable..
-	}
-	
-}
+    public function onCommand(CommandSender $sender, Command $command, string $label, array $args): bool{
+        if(strtolower($command->getName()) == "core"){
+          if($sender->hasPermission("skycore.command") || $sender->isOp()){
+          }
+    public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args): bool{
+        $player = $sender->getPlayer();
+        switch ($cmd->getName()){
+            case "core":
+                $this->coreFrom($player);
+                break;
+        }
+        return true;
+    }
+    public function coreFrom($player){
+        $plugin = $this->getServer()->getPluginManager();
+        $formapi = $plugin->getPlugin("FormAPI");
+        $form = $formapi->createSimpleForm(function (Player $event, array $args){
+            $result = $args[0];
+            $player = $event->getPlayer();
+            if($result === null){
+            }
+            switch($result){
+                case 0:
+                    return;
+                case 1:
+                    $this->discordForm($player);
+                    return;
+                case 2:
+                    $this->aboutForm($player);
+                    return;
+            }
+        });
+        $form->setTitle(TF::BOLD . TF::BLACK . "FlyUI Menu");
+        $form->setContent(TF::GREEN . "SkyRealmPE Main Menu");
+        $form->addButton(TF::GREEN . "Discord");
+        $form->addButton(TF::GREEN . "About");
+        $form->addButton(TF::WHITE . "Back");
+        $form->sendToPlayer($player);
+    }
+    public function discordForm($player){
+        $form->setContent(TF:WHITE . "You can join our discord at bir.do/"              
+      }  
+    public function aboutForm($player){
+        $sender->sendMessage(TF::RED . "This server was made by Crafter20162017! \n We are a BETA server meaning in development");
+      }
+    }
