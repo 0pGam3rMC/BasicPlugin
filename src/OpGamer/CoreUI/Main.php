@@ -52,7 +52,7 @@ class Main extends Base implements Listener{
             }
         });
         $form->setTitle(TF::BOLD . TF::GOLD . "SkyRealmPE Menu");
-        $form->setContent(TF::WHITE . "Welcome to this server's Main Menu UI Made by Crafter20162017!\n Hopefully you'll learn a thing or two while your here :) ");
+        $form->setContent(TF::BLUE . "Welcome to this server's Main Menu UI Made by Crafter20162017!\nHopefully you'll learn a thing or two while your here :) ");
         $form->addButton(TF::GREEN . "Our Discord");
         $form->addButton(TF::AQUA . "Our Vote website");
         $form->addButton(TF::RED . "Back");
@@ -61,15 +61,31 @@ class Main extends Base implements Listener{
 		    }
     }
     public function discordForm($sender){
-        $form->setContent(TF::LIGHT_PURPLE . "You can join our discord at bit.do/skydiscord");
-	    if ($sender instanceof Player){
+		$plugin = $this->getServer()->getPluginManager();
+        $formapi = $plugin->getPlugin("FormAPI");
+        $form = $formapi->createSimpleForm(function (Player $event, array $args){
+        $form->setTitle(TF::DARK_GRAY . "-=- " . TF::GREEN . "Discord" . TF:DARK_GRAY . " -=-" );
+        $form->setContent(TF::BLUE . "You can join our discord at bit.do/skydiscord");
+	     $form->addButton(TF::RED . "Exit");
+	    if($sender instanceof Player){
 		    $form->sendToPlayer($sender);
+		    
 	    }
       }  
     public function aboutForm($sender){
-        $form->setContent(TF::RED . "This server was made by Crafter20162017! \n We are a BETA server meaning in development");
+	$plugin = $this->getServer()->getPluginManager();
+        $formapi = $plugin->getPlugin("FormAPI");
+
+	
+        $form = $formapi->createSimpleForm(function (Player $event, array $args){
+		   $form->setTitle(TF::GREEN . "About Server");
+        $form->setContent(TF::RED . "This server was made by Crafter20162017!\nWe are a BETA server meaning in development\n You can run commands like /shop /kit /sb info /pvp and so much more!\n Need to report something? Contact us at @skyrmpe");
+		
+
+		
 	    if ($sender instanceof Player){
 		    $form->sendToPlayer($sender);
+	       }
 	    }
       }
     }
