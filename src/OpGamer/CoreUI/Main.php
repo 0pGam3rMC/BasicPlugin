@@ -20,8 +20,10 @@ class Main extends Base implements Listener{
     }
     public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args): bool{
         $player = $sender->getPlayer();
-        if(strtolower($cmd->getName()) == "core"){
-                 $this->coreFrom($player);
+        switch(strtolower($cmd->getName())){
+			case "core":
+				/* Check if the player is permitted to use the command */
+					
                 break;
         }
         return true;
