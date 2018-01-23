@@ -1,5 +1,5 @@
 name: CoreUI
-main: OpGamer\CoreUI\Core
+main: OpGamer\CoreUI\Main
 version: 1.0.3
 author: OpGamer
 api: 3.0.0-ALPHA10
