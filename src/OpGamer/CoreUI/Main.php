@@ -52,10 +52,11 @@ class Main extends Base implements Listener{
         $form->addButton(TF::GREEN . "Discord");
         $form->addButton(TF::GREEN . "About");
         $form->addButton(TF::WHITE . "Back");
-        $form->sendToPlayer($player);
+        $form->sendToPlayer($sender);
     }
     public function discordForm($sender){
-        $form->setContent(TF::WHITE . "You can join our discord at bit.do/skydiscord");          
+        $form->setContent(TF::WHITE . "You can join our discord at bit.do/skydiscord");
+	    $form->sendToPlayer($sender);
       }  
     public function aboutForm($sender){
         $sender->sendMessage(TF::RED . "This server was made by Crafter20162017! \n We are a BETA server meaning in development");
