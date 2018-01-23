@@ -18,10 +18,6 @@ class Core extends Base implements Listener{
         $this->getLogger()->info("SkyCore Aactivated");
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
     }
-    public function onCommand(CommandSender $sender, Command $command, string $label, array $args): bool{
-        if(strtolower($command->getName()) == "core"){
-          if($sender->hasPermission("skycore.command") || $sender->isOp()){
-          }
     public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args): bool{
         $player = $sender->getPlayer();
         switch ($cmd->getName()){
