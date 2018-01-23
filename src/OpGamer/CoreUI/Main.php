@@ -19,31 +19,31 @@ class Main extends Base implements Listener{
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
     }
     public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args): bool{
-        $player = $sender->getPlayer();
         switch(strtolower($cmd->getName())){
 			case "core":
+			$this->coreForm($sender);
 				/* Check if the player is permitted to use the command */
 					
                 break;
         }
         return true;
     }
-    public function coreForm($player){
+    public function coreForm($sender){
         $plugin = $this->getServer()->getPluginManager();
         $formapi = $plugin->getPlugin("FormAPI");
         $form = $formapi->createSimpleForm(function (Player $event, array $args){
             $result = $args[0];
-            $player = $event->getPlayer();
+            $sender = $event->getPlayer();
             if($result === null){
             }
             switch($result){
                 case 0:
                     return;
                 case 1:
-                    $this->discordForm($player);
+                    $this->discordForm($sender);
                     return;
                 case 2:
-                    $this->aboutForm($player);
+                    $this->aboutForm($sender);
                     return;
             }
         });
@@ -54,10 +54,10 @@ class Main extends Base implements Listener{
         $form->addButton(TF::WHITE . "Back");
         $form->sendToPlayer($player);
     }
-    public function discordForm($player){
+    public function discordForm($sender){
         $form->setContent(TF::WHITE . "You can join our discord at bit.do/skydiscord");          
       }  
-    public function aboutForm($player){
+    public function aboutForm($sender){
         $sender->sendMessage(TF::RED . "This server was made by Crafter20162017! \n We are a BETA server meaning in development");
       }
     }
