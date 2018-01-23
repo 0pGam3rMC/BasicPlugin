@@ -20,9 +20,8 @@ class Main extends Base implements Listener{
     }
     public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args): bool{
         $player = $sender->getPlayer();
-        switch ($cmd->getName()){
-            case "core":
-                $this->coreFrom($player);
+        if(strtolower($cmd->getName()) == "core"){
+                 $this->coreFrom($player);
                 break;
         }
         return true;
