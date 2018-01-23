@@ -12,7 +12,7 @@ use pocketmine\event\Listener;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use jojoe77777\FormAPI;
-class Main extends Base implements Listener{
+class Core extends Base implements Listener{
   
     public function onEnable(){
         $this->getLogger()->info("SkyCore Aactivated");
@@ -31,7 +31,7 @@ class Main extends Base implements Listener{
         }
         return true;
     }
-    public function coreFrom($player){
+    public function coreForm($player){
         $plugin = $this->getServer()->getPluginManager();
         $formapi = $plugin->getPlugin("FormAPI");
         $form = $formapi->createSimpleForm(function (Player $event, array $args){
@@ -50,7 +50,7 @@ class Main extends Base implements Listener{
                     return;
             }
         });
-        $form->setTitle(TF::BOLD . TF::BLACK . "FlyUI Menu");
+        $form->setTitle(TF::BOLD . TF::GREEN . "CoreUI Menu");
         $form->setContent(TF::GREEN . "SkyRealmPE Main Menu");
         $form->addButton(TF::GREEN . "Discord");
         $form->addButton(TF::GREEN . "About");
