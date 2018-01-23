@@ -58,7 +58,7 @@ class Main extends Base implements Listener{
         $form->sendToPlayer($player);
     }
     public function discordForm($player){
-        $form->setContent(TF:WHITE . "You can join our discord at bir.do/"              
+        $form->setContent(TF:WHITE . "You can join our discord at bir.do/");          
       }  
     public function aboutForm($player){
         $sender->sendMessage(TF::RED . "This server was made by Crafter20162017! \n We are a BETA server meaning in development");
