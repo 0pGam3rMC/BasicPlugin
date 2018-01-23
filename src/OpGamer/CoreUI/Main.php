@@ -3,7 +3,7 @@
 //Property of DevrlyCode & YungFlowz
 //Any And All Usages Involving Non-Authorized Users Will Be Refered To As Meanie Heads
 //Copyright © @JazzyDevZ LLC
-namespace FlyUI;
+namespace OpGamer\CoreUI;
 use pocketmine\Server;
 use pocketmine\Player;
 use pocketmine\plugin\PluginBase as Base;
@@ -12,7 +12,7 @@ use pocketmine\event\Listener;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use jojoe77777\FormAPI;
-class Core extends Base implements Listener{
+class Main extends Base implements Listener{
   
     public function onEnable(){
         $this->getLogger()->info("SkyCore Aactivated");
