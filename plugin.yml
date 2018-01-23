@@ -1,4 +1,7 @@
-name: TestingPlugin
-main: OpGamer\TestingPlugin\Main
-version: 1.0.2
+name: CoreUI
+main: OpGamer\CoreUI\Core
+version: 1.0.3
 api: [3.0.0-ALPHA10]
+commands:
+  core:
+   description: "§bThis is SkyRealm Core!"
