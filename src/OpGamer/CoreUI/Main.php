@@ -64,7 +64,7 @@ class Main extends Base implements Listener{
 		$plugin = $this->getServer()->getPluginManager();
         $formapi = $plugin->getPlugin("FormAPI");
         $form = $formapi->createSimpleForm(function (Player $event, array $args){
-        $form->setTitle(TF::DARK_GRAY . "-=- " . TF::GREEN . "Discord" . TF:DARK_GRAY . " -=-" );
+        $form->setTitle(TF::DARK_GRAY . "-=- " . TF::GREEN . "Discord" . TF::DARK_GRAY . " -=-" );
         $form->setContent(TF::BLUE . "You can join our discord at bit.do/skydiscord");
 	     $form->addButton(TF::RED . "Exit");
 	    if($sender instanceof Player){
