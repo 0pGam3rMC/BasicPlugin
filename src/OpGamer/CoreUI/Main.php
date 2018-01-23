@@ -69,7 +69,7 @@ class Main extends Base implements Listener{
 	     $form->addButton(TF::RED . "Exit");
 	    if($sender instanceof Player){
 		    $form->sendToPlayer($sender);
-		    
+		    }
 	    }
       }  
     public function aboutForm($sender){
